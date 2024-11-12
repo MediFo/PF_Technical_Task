@@ -5,7 +5,7 @@ Clear
 New Circuit.TaskExample_KTP BasekV=11 pu=1.0 phases=3
 
 // define the line code for LV lines
-New Linecode.300 nphases=3 BaseFreq=50 R1=0.1 X1=0.4 R0=0.3 X0=0.6 Units=kft
+New Linecode.mtx607 nphases=3 BaseFreq=50 R1=0.2543 X1=0.0971 Units=kftt
 
 
 // define high-voltage sources
@@ -31,12 +31,12 @@ New Transformer.Transformer2 phases=3 windings=2 XHL=7 %loadloss=0.9
 
 
 // define LV lines 
-New Line.LV_Line1 phases=3 Bus1=Bus3 Bus2=Bus5 LineCode=300  Length=0.5 units=kft
-New Line.LV_Line2 phases=3 Bus1=Bus4 Bus2=Bus6 LineCode=300 Length=0.5 units=kft
+New Line.LV_Line1 phases=3 Bus1=Bus3 Bus2=Bus5 LineCode=mtx607  Length=1.5 units=kft
+New Line.LV_Line2 phases=3 Bus1=Bus4 Bus2=Bus6 LineCode=mtx607 Length=1.5 units=kft
 
 
 // define LV loads
-New Load.Load3 phases=3 Bus1=Bus5 kV=0.4 kW=50 pf=0.95 conn=wye
+New Load.Load3 phases=3 Bus1=Bus5 kV=0.4 kW=70 pf=0.95 conn=wye
 New Load.Load4 phases=3 Bus1=Bus6 kV=0.4 kW=50 pf=0.95 conn=wye
 
 
