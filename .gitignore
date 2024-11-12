@@ -1,0 +1,5 @@
+#ignore all opendss exports in each runs
+TaskExample_KTP_Curr_Seq.Txt
+TaskExample_KTP_Losses.Txt
+TaskExample_KTP_Power_seq_kVA.txt
+TaskExample_KTP_VLN_Node.Txt
