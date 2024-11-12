@@ -1,0 +1,45 @@
+// Clear
+Clear
+
+// define the circuit 
+
+
+// define the line code for LV lines
+
+
+
+// define high-voltage sources
+
+// define HV Loads
+
+
+//define transformers 
+
+
+
+// define LV lines 
+
+
+// define LV loads
+
+
+// switch connection
+
+
+
+//add monitors
+
+
+
+
+
+// solve the circuit
+
+
+
+// display  report 
+
+
+// optinal task --->  define load shapes + define PV Generation Shape + New PVSystem.PV1
+
+
