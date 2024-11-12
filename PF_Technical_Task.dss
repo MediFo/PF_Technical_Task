@@ -2,25 +2,31 @@
 Clear
 
 // define the circuit 
-
+New Circuit.TaskExample_KTP BasekV=11 pu=1.0 phases=3
 
 // define the line code for LV lines
-
+New Linecode.300 nphases=3 BaseFreq=50 R1=0.1 X1=0.4 R0=0.3 X0=0.6 Units=kft
 
 
 // define high-voltage sources
+New Vsource.HV_Source1 Bus1=Bus1 BasekV=11 pu=1.0 phases=3
+
 
 // define HV Loads
+New Load.Load1 phases=3 Bus1=Bus1 kV=11 kW=100 pf=0.95 conn=wye
 
 
 //define transformers 
-
+New Transformer.Transformer1 phases=3 windings=2 XHL=7 %loadloss=0.9
+~ wdg=1 bus=Bus1 kV=11 kVA=500 conn=delta
+~ wdg=2 bus=Bus3 kV=0.4 kVA=500 conn=wye
 
 
 // define LV lines 
-
+New Line.LV_Line1 phases=3 Bus1=Bus3 Bus2=Bus5 LineCode=300  Length=0.5 units=kft
 
 // define LV loads
+New Load.Load3 phases=3 Bus1=Bus5 kV=0.4 kW=50 pf=0.95 conn=wye
 
 
 // switch connection
@@ -33,11 +39,23 @@ Clear
 
 
 
-// solve the circuit
+// Set the solve mode and solve
+Set voltagebases=[11, 0.4]
+Calcvoltagebases
 
+Set mode=snap
+Set algorithm=normal
+
+// solve the circuit
+Solve
 
 
 // display  report 
+Show Voltages LN Nodes
+Show Powers kVA
+Show currents [residual=yes] 
+Show losses
+
 
 
 // optinal task --->  define load shapes + define PV Generation Shape + New PVSystem.PV1
