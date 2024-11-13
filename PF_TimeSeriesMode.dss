@@ -99,8 +99,8 @@ Show currents [residual=yes]
 Show losses
 
 
+BusCoords Network_coordinate.csv
 
-
-
+//Plot type=daisy quantity=voltage
 
 
