@@ -1,25 +1,24 @@
-// Clear
+!Clear any previous circuit definitions
 Clear
 
-// define the circuit 
+!Define the main circuit
 New Circuit.TaskExample_KTP BasekV=11 pu=1.0 phases=3
 
-// define the line code for LV lines
-New Linecode.mtx607 nphases=3 BaseFreq=50 R1=0.2543 X1=0.0971 Units=kftt
 
+// --- High Voltage Sources ---
 
-// define high-voltage sources
+!Define high-voltage sources
 New Vsource.HV_Source1 Bus1=Bus1 BasekV=11 pu=1.0 phases=3
 New Vsource.HV_Source2 Bus1=Bus2 BasekV=11 pu=1.0 phases=3
 
 
 
-// define HV Loads
+! Define HV Loads
 New Load.Load1 phases=3 Bus1=Bus1 kV=11 kW=100 pf=0.95 conn=wye
 New Load.Load2 phases=3 Bus1=Bus2 kV=11 kW=100 pf=0.95 conn=wye
 
 
-//define transformers 
+! Define transformers 
 New Transformer.Transformer1 phases=3 windings=2 XHL=7 %loadloss=0.9
 ~ wdg=1 bus=Bus1 kV=11 kVA=500 conn=delta
 ~ wdg=2 bus=Bus3 kV=0.4 kVA=500 conn=wye
@@ -28,27 +27,32 @@ New Transformer.Transformer2 phases=3 windings=2 XHL=7 %loadloss=0.9
 ~ wdg=1 bus=Bus2 kV=11 kVA=500 conn=delta
 ~ wdg=2 bus=Bus4 kV=0.4 kVA=500 conn=wye
 
+// --- Switch to change LV network topology ---
+
+!Define the line code for LV lines 
+//(REF:https://github.com/tshort/OpenDSS/tree/master/Distrib/IEEETestCases)
+
+New Linecode.mtx607 nphases=3 BaseFreq=50 R1=0.2543 X1=0.0971 Units=kftt
 
 
-// define LV lines 
+! Define LV lines 
 New Line.LV_Line1 phases=3 Bus1=Bus3 Bus2=Bus5 LineCode=mtx607  Length=1.5 units=kft
 New Line.LV_Line2 phases=3 Bus1=Bus4 Bus2=Bus6 LineCode=mtx607 Length=1.5 units=kft
 
 
-// define LV loads
+! Define LV loads
 New Load.Load3 phases=3 Bus1=Bus5 kV=0.4 kW=70 pf=0.95 conn=wye
 New Load.Load4 phases=3 Bus1=Bus6 kV=0.4 kW=50 pf=0.95 conn=wye
 
 
-// switch connection
+! Define switch connection
 New Line.Switch_Connection phases=3 Bus1=Bus5 Bus2=Bus6 Switch=yes enabled=true
 
-
-Close Line.Switch_Connection //Open/Close
-
+Close Line.Switch_Connection //Control varaibles: Close/Open
 
 
-//add monitors
+// --- Measurement Points (using monitors) ---
+!Add monitors
 New Monitor.Voltage_Bus1 element=Vsource.HV_Source1 terminal=1 mode=0
 New Monitor.Voltage_Bus2 element=Vsource.HV_Source2 terminal=1 mode=0
 New Monitor.Voltage_Bus3 element=Line.LV_Line1 terminal=1 mode=0
@@ -66,25 +70,23 @@ New Monitor.Current_L2 element=Line.LV_Line2 terminal=1 mode=0
 
 
 
-// Set the solve mode and solve
+!Set the solve mode and solve
+
 Set voltagebases=[11, 0.4]
 Calcvoltagebases
 
-Set mode=snap
-Set algorithm=normal
+Set mode=snap //we want one snapshot of power flow
+Set algorithm=normal //Newthon Method
 
-// solve the circuit
+!solve the circuit
 Solve
 
 
-// display  report 
+!Display  report 
 Show Voltages LN Nodes
 Show Powers kVA
 Show currents [residual=yes] 
 Show losses
 
-
-
-// optinal task --->  define load shapes + define PV Generation Shape + New PVSystem.PV1
 
 
