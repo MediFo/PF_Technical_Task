@@ -89,7 +89,7 @@ New Monitor.Current_L2 element=Line.LV_Line2 terminal=1 mode=0
 
 ! Set the solve mode and solve
 Set voltagebases=[11, 0.4]
-Calcvoltagebases
+//Calcvoltagebases
 
 set controlmode=time
 set mode=Daily  //As we have load and pv shape
@@ -111,7 +111,7 @@ BusCoords Network_coordinate.csv //for network coordination
 
 
 Export monitors voltage_bus6
-Plot monitor object= voltage_bus6 channels=(1 ) bases=[231] //.4* square root of 3*1000
+Plot monitor object= voltage_bus6 channels=(1 ) bases=[231] //.4* square root of 3*1000 (for p.u results)
 
 Export monitors voltage_bus5
 Plot monitor object= voltage_bus5 channels=(1 ) bases=[231]
