@@ -1,9 +1,10 @@
-Technical Task
+**Technical Task**
 Position: Energy Technologies Researcher (KTP)
 
-Summary:
-Develop a load flow simulation using OpenDss
+**Summary:**
+Developing a load flow simulation using OpenDss
 
+//**************************************//
 Please run **PF_SnapMode.dss** for tasks (a) to (c).
 
 For tasks (d) and (e), please run **PF_TimeSeriesMode.dss** (developed for time-series analysis to model load and PV profiles).
@@ -12,7 +13,8 @@ For tasks (f) and (g), please run **KTP_OpenDSS_Python.ipynb** (this script inte
 
 The **report** are available in the Excel file located in the **result** folder, with additional details provided in its subfolders.
 
-Specifications:
+//**************************************//
+**Specifications:**
 
 Three-phase source: Two sources at 11 kV, 50 Hz, with no internal impedance.
 Bus: Six buses, each with voltage measurement capability.
@@ -22,7 +24,7 @@ Transformer: Two transformers with a ratio of 11 kV to 0.4 kV, set to any reason
 RL Line: As many as necessary, with current measurement capability and impedance set to any reasonable value.
 Switch: One switch to alter the low-voltage network topology configuration.
 
-Task Description:
+**Task Description:**
 
 a. Create an electricity distribution network model as specified above
 
@@ -31,7 +33,7 @@ b. Run two load flow simulations: one with the switch open and one with the swit
 c. Export the bus voltages, line currents, and transformer power data in a tabular format.
 
 
-Stretch Task (optional):
+**Stretch Task (optional):**
 
 If time permits, consider extending the simulation with one or more of the following:
 
