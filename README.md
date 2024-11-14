@@ -5,6 +5,7 @@ Position: Energy Technologies Researcher (KTP)
 Developing a load flow simulation using OpenDss
 
 //**************************************//
+
 Please run **PF_SnapMode.dss** for tasks (a) to (c).
 
 For tasks (d) and (e), please run **PF_TimeSeriesMode.dss** (developed for time-series analysis to model load and PV profiles).
@@ -14,6 +15,7 @@ For tasks (f) and (g), please run **KTP_OpenDSS_Python.ipynb** (this script inte
 The **report** are available in the Excel file located in the **result** folder, with additional details provided in its subfolders.
 
 //**************************************//
+
 **Specifications:**
 
 Three-phase source: Two sources at 11 kV, 50 Hz, with no internal impedance.
