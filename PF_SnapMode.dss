@@ -15,7 +15,7 @@ New Vsource.HV_Source2 Bus1=Bus2 BasekV=11 pu=1.0 phases=3
 
 ! Define HV Loads
 New Load.Load1 phases=3 Bus1=Bus1 kV=11 kW=100 pf=0.95 conn=wye
-New Load.Load2 phases=3 Bus1=Bus2 kV=11 kW=100 pf=0.95 conn=wye
+New Load.Load2 phases=3 Bus1=Bus2 kV=11 kW=80 pf=0.95 conn=wye
 
 
 ! Define transformers 
@@ -41,14 +41,14 @@ New Line.LV_Line2 phases=3 Bus1=Bus4 Bus2=Bus6 LineCode=mtx607 Length=1.5 units=
 
 
 ! Define LV loads
-New Load.Load3 phases=3 Bus1=Bus5 kV=0.4 kW=70 pf=0.95 conn=wye
-New Load.Load4 phases=3 Bus1=Bus6 kV=0.4 kW=50 pf=0.95 conn=wye
+New Load.Load3 phases=3 Bus1=Bus5 kV=0.4 kW=40 pf=0.95 conn=wye
+New Load.Load4 phases=3 Bus1=Bus6 kV=0.4 kW=20 pf=0.95 conn=wye
 
 
 ! Define switch connection
 New Line.Switch_Connection phases=3 Bus1=Bus5 Bus2=Bus6 Switch=yes enabled=true
 
-Close Line.Switch_Connection //Control varaibles: Close/Open
+Open Line.Switch_Connection //Control varaibles: Close/Open
 
 
 // --- Measurement Points (using monitors) ---
@@ -81,12 +81,23 @@ Set algorithm=normal //Newthon Method
 !solve the circuit
 Solve
 
+BusCoords Network_coordinate.csv //for network coordination
 
 !Display  report 
 Show Voltages LN Nodes
+Show Voltages Vmag
 Show Powers kVA
 Show currents [residual=yes] 
 Show losses
 
+
+plot General 1 max= 0  dots=n labels=n object=(C:\Users\47939\Desktop\Interviews\KTP\Technical_Task _KTP\Network_coordinate.csv) C1=$00FF0000 C2=$000000FF
+Plot Profile Phases=All
+
+Visualize powers "Transformer.TRANSFORMER1"
+Visualize powers "Transformer.TRANSFORMER2"
+
+Visualize currents "Line.LV_LINE1"
+Visualize currents "Line.LV_LINE2"
 
 

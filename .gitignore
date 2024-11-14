@@ -1,13 +1,9 @@
 #ignore all opendss exports in each runs
-TaskExample_KTP_Curr_Seq.Txt
-TaskExample_KTP_Losses.Txt
-TaskExample_KTP_Power_seq_kVA.txt
-TaskExample_KTP_VLN_Node.Txt
-TaskExample_KTP_MONITOR-VOLTAGE_BUS5-ch1.DSV
-TaskExample_KTP_MONITOR-VOLTAGE_BUS5-ch1.dbl
-TaskExample_KTP_MONITOR-VOLTAGE_BUS6-ch1.DSV
-TaskExample_KTP_MONITOR-VOLTAGE_BUS6-ch1.dbl
-TaskExample_KTP_Mon_voltage_bus1_1.csv
-TaskExample_KTP_Mon_voltage_bus5_1.csv
-TaskExample_KTP_Mon_voltage_bus6_1.csv
+*.Txt
+*.dbl
+*.DSV
+*.csv
 .ipynb_checkpoints/
+.idea/
+
+!Network_coordinate.csv
