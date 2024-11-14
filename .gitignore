@@ -7,3 +7,8 @@
 .idea/
 
 !Network_coordinate.csv
+!CURRENTS_REPORT.Txt
+!LOSSES_REPORT.Txt
+!POWER_REPORT.Txt
+!VLN_Node_REPORT.Txt
+!VOLTAGES_REPORT.Txt
