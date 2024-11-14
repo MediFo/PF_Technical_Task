@@ -25,14 +25,14 @@ c. Export the bus voltages, line currents, and transformer power data in a tabul
 
 Stretch Task (optional):
 
-d. If time permits, consider extending the simulation with one or more of the following:
+If time permits, consider extending the simulation with one or more of the following:
 
-e. Apply a load profile to one or more loads.
+d. Apply a load profile to one or more loads.
 
-f. Add a renewable generator, such as solar PV, to one of the low-voltage buses.
+e. Add a renewable generator, such as solar PV, to one of the low-voltage buses.
 
-g. Assign x and y coordinates to network elements and display results in a single-line diagram or geospatial format.
+f. Assign x and y coordinates to network elements and display results in a single-line diagram or geospatial format.
 
-h. Export the model in an interchange format, then import it into a different open-source tool
+g. Export the model in an interchange format, then import it into a different open-source tool
 
 
